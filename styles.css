@@ -3,16 +3,18 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    margin: 0;
+    margin: 0 auto; /* Центрируем body с авто-margins */
     padding: 0;
-    scroll-behavior: smooth; /* Плавный скролл */
+    max-width: 1400px; /* Глобальный max-width для полей по бокам */
+    scroll-behavior: smooth;
     background: #f9f9f9;
+    line-height: 1.6; /* Улучшаем читаемость текста */
 }
 
 header {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Градиент синий */
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
     color: white;
-    padding: 1.5em;
+    padding: 1.5em 2em; /* Добавляем боковые отступы в header */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -36,14 +38,14 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffeb3b; /* Желтый акцент при ховере */
+    color: #ffeb3b;
 }
 
 .hero {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa); /* Градиент hero */
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
     color: white;
     text-align: center;
-    padding: 5em 2em;
+    padding: 5em 4em; /* Увеличили боковые отступы */
 }
 
 .hero h1 {
@@ -57,7 +59,7 @@ nav a:hover {
 }
 
 .cta {
-    background: #ff6b6b; /* Яркая кнопка */
+    background: #ff6b6b;
     color: white;
     padding: 0.8em 2em;
     text-decoration: none;
@@ -72,7 +74,7 @@ nav a:hover {
 }
 
 section {
-    padding: 3em 2em;
+    padding: 3em 4em; /* Основные боковые отступы для секций */
 }
 
 h2 {
@@ -87,7 +89,7 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5em;
     max-width: 1200px;
-    margin: auto;
+    margin: auto; /* Центрируем grids */
 }
 
 .card {
@@ -125,6 +127,7 @@ form {
     flex-direction: column;
     max-width: 500px;
     margin: auto;
+    padding: 0 1em; /* Добавляем отступы для формы на мобильных */
 }
 
 input, textarea, button {
@@ -151,19 +154,50 @@ footer {
     background: #1e3a8a;
     color: white;
     text-align: center;
-    padding: 1.5em;
+    padding: 1.5em 4em; /* Отступы в футере */
 }
 
-/* Responsive */
+/* Responsive улучшения */
 @media (max-width: 768px) {
+    body {
+        padding: 0 1em; /* Минимальные боковые отступы на мобильных */
+    }
+    header {
+        padding: 1em 1.5em;
+    }
     nav ul {
         flex-direction: column;
         gap: 1em;
+    }
+    .hero {
+        padding: 3em 2em; /* Уменьшаем на мобильных */
     }
     .hero h1 {
         font-size: 1.8em;
     }
     .hero p {
         font-size: 1em;
+    }
+    section {
+        padding: 2em 2em; /* Адаптируем отступы */
+    }
+    .services-grid, .portfolio-grid, .testimonials-grid {
+        grid-template-columns: 1fr; /* Один столбец на мобильных */
+        gap: 1em;
+    }
+    .card {
+        min-width: auto; /* Не сжимаем слишком */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2em 1em;
+    }
+    section {
+        padding: 1.5em 1em;
+    }
+    form {
+        padding: 0;
     }
 }
